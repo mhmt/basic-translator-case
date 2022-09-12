@@ -1,0 +1,11 @@
+.App {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-image: url("../../Assets/background.jpg");
+	background-position: 80% 60%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow-y: auto;
+}

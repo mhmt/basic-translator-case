@@ -1,0 +1,149 @@
+.translatorWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 1em;
+
+    .translatorContainer {
+        display: flex;
+        flex-direction: row;
+        border-radius: 0.5em;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+        width: 100%;
+        background-color: white;
+        opacity: 0.9;
+        padding: 0.5em;
+        margin-top: 2em;
+        position: relative;
+
+        .button {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            padding: 0.5em;
+            position: absolute;
+            top: 0.5em;
+            left: calc(50% - 1.3em);
+            height: 24px;
+            width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 1;
+            background-color: white;
+
+            &:hover {
+                transform: scale(1.05);
+                cursor: pointer;
+            }
+
+            &:active {
+                background-color: rgba(232, 232, 232);
+            }
+
+            &.recording {
+                background-color: indianred;
+            }
+        }
+
+        .translateCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+
+            .cardTop {
+                border-bottom: 1px solid rgba(0, 0, 0, .20);
+                width: 100%;
+                text-align: center;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .cardContent {
+                width: calc(100% - 1em);
+                resize: none;
+                font-size: 1.5em;
+                border: none;
+                outline: none;
+                padding: 0.5em;
+            }
+
+            &:not(:first-child) {
+                .cardContent {
+                    border-left: 1px solid rgba(0, 0, 0, .20);
+                }
+            }
+        }
+
+        @media (max-width: 960px) {
+            flex-direction: column;
+
+            .translateCard:first-child {
+                flex-direction: column-reverse;
+
+                .cardTop {
+                    border-bottom: none;
+                    border-top: 1px solid rgba(0, 0, 0, .20);
+                    padding-bottom: 2em;
+                }
+            }
+
+            .cardContent {
+                border-left: none !important;
+            }
+
+            .button {
+                top: calc(50% - 1.3em);
+            }
+        }
+
+
+    }
+
+    .historyContainer {
+        margin-top: 2em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0.5em;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+        background-color: white;
+        opacity: 0.9;
+        padding: 1em;
+        max-height: 300px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        font-size: 12px;
+
+        .historyItem {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0.5em;
+
+            &:hover {
+                background-color: rgba(232, 232, 232);
+                cursor: pointer;
+            }
+
+            .historyItemLabel {
+                font-weight: 600;
+            }
+
+            .historyItemText {
+                margin-left: 1em;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba(0, 0, 0, .20);
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        width: calc(100% - 1em);
+    }
+}
