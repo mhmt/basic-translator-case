@@ -5,6 +5,7 @@ const HistoryItem = (props: IHistoryItemProps) => {
 
     const onClick = React.useCallback(() => {
         props.onClickItem(props.data);
+        // eslint-disable-next-line
     }, [props.data]);
 
     return (

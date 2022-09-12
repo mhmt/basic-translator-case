@@ -24,15 +24,15 @@ const useSpeechToText = (onResult: (text: string | null) => void): ISpeechToText
             const transcript = speechResult.results[0][0].transcript;
             onResult(transcript);
         };
-    }, []);
+    }, [speechRecognition, onResult]);
 
     const startListening = useCallback(() => {
         speechRecognition.start();
-    }, []);
+    }, [speechRecognition]);
 
     const stopListening = useCallback(() => {
         speechRecognition.stop();
-    }, []);
+    }, [speechRecognition]);
 
     return {
         startListening,

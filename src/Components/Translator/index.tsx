@@ -34,7 +34,7 @@ const Translator = () => {
 
     const addToHistory = React.useCallback((item: IHistoryItem) => {
         setHistory(currentState => {
-            let isItemExist = currentState.findIndex(state => state.en == item.en) > -1;
+            let isItemExist = currentState.findIndex(state => state.en === item.en) > -1;
             if (!isItemExist) {
                 return [item, ...currentState]
             }
@@ -42,6 +42,7 @@ const Translator = () => {
         });
     }, []);
 
+    // eslint-disable-next-line
     const translateTextDebounced = React.useCallback(debounce((text: string | undefined) => {
         if (text) {
             TranslationService.translate(text).then((response: any) => {
@@ -81,7 +82,7 @@ const Translator = () => {
             )
         }
         return <></>
-    }, [history]);
+    }, [history, onClickHistoryItem]);
 
     return (
         <div className='translatorWrapper'>
